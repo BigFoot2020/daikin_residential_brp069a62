@@ -1,0 +1,16 @@
+{
+  "domain": "daikin_residential_brp069a62",
+  "name": "Daikin Residential Controller for BRP069A62",
+  "version": "0.1.0",
+  "documentation": "https://github.com/bigfoot2020/daikin_residential_brp069a62",
+  "dependencies": [],
+  "codeowners": [
+    "@bigfoot2020"
+  ],
+  "issue_tracker": "https://github.com/bigfoot2020/daikin_residential_brp069a62/issues",
+  "requirements": [
+     "oic==1.2.1"
+  ],
+  "iot_class": "cloud_polling",
+  "config_flow": true
+}

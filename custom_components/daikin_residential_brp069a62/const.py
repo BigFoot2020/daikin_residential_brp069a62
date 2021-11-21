@@ -1,0 +1,124 @@
+"""Constants for Daikin Residential Controller with BRP069A62."""
+
+from homeassistant.const import (
+    CONF_DEVICE_CLASS,
+    CONF_TOKEN,
+    CONF_ICON,
+    CONF_NAME,
+    CONF_TYPE,
+    CONF_UNIT_OF_MEASUREMENT,
+    DEVICE_CLASS_TEMPERATURE,
+    TEMP_CELSIUS,
+)
+
+DOMAIN = "daikin_residential_brp069a62"
+
+CONF_TOKENSET = CONF_TOKEN + "set"
+
+DAIKIN_DATA = "daikin_data"
+DAIKIN_API = "daikin_api"
+DAIKIN_DEVICES = "daikin_devices"
+DAIKIN_DISCOVERY_NEW = "daikin_discovery_new_{}"
+
+# MANAGEMENT POINTS
+MP_GATEWAY = "0" #"gateway"
+MP_CLIMATE = "1" #"climateControl"
+MP_DHW_TANK = "2" #"domesticHotWaterTank"
+MP_INDOOR_UNIT = "3" #"indoorUnitHydro"
+MP_OUDOOR_UNIT = "4" #"outdoorUnit"
+MP_USER_INTERFACE = "5" #"userInterface"
+
+# DATA POINTS
+DP_ON_OFF_MODE = "onOffMode"
+DP_OPERATION_MODE = "operationMode"
+DP_SENSORS = "sensoryData"
+DP_TARGET_TEMPERATURE = "targetTemperature"
+DP_DHW_TEMPERATURE = "temperatureControl"
+DP_DHW_POWERFUL_MODE = "powerfulMode"
+
+ATTR_CLIMATE_ON_OFF = "climate_on_off"
+ATTR_OPERATION_MODE = "operation_mode"
+ATTR_INSIDE_TEMPERATURE = "roomTemperature"
+ATTR_OUTSIDE_TEMPERATURE = "outdoorTemperature"
+ATTR_LW_TEMPERATURE = "leavingWaterTemperature"
+ATTR_TARGET_TEMPERATURE = "targetTemperature"
+
+ATTR_DHW_TANK_ON_OFF = "dhw_tank_on_off"
+ATTR_DHW_POWERFUL = "powerfulMode"
+ATTR_DHW_TEMPERATURE = "DHWTemperature"
+ATTR_DHW_TARGET_TEMPERATURE = "DHWTargetTemperature"
+ATTR_DHW_MODE = "dhw_mode"
+ATTR_DHW_MODE_SET = "dhw_state"
+ATTR_DHW_STATE_OFF = "off"
+ATTR_DHW_STATE_HEAT_PUMP = "on"
+ATTR_DHW_STATE_PERFOMANCE = "powerfulMode"
+
+
+ATTR_HVAC_MODE_COOL = "cooling"
+ATTR_HVAC_MODE_HEAT = "heating"
+ATTR_HVAC_MODE_AUTO = "auto"
+ATTR_HVAC_MODE_OFF = "off"
+ATTR_HVAC_MODE_SET = "hvac_mode"
+
+DAIKIN_CMD_SETS = {
+    ATTR_CLIMATE_ON_OFF: [MP_CLIMATE, DP_ON_OFF_MODE, ""], 
+    ATTR_OPERATION_MODE: [MP_CLIMATE, DP_OPERATION_MODE, ""],
+    ATTR_INSIDE_TEMPERATURE: [MP_CLIMATE, DP_SENSORS, "/roomTemperature"],
+    ATTR_OUTSIDE_TEMPERATURE: [MP_CLIMATE, DP_SENSORS, "/outdoorTemperature"],
+    ATTR_LW_TEMPERATURE: [MP_CLIMATE, DP_SENSORS, "/leavingWaterTemperature"],
+    ATTR_TARGET_TEMPERATURE: [MP_CLIMATE, DP_TARGET_TEMPERATURE, ""],
+    ATTR_DHW_TANK_ON_OFF: [MP_DHW_TANK, DP_ON_OFF_MODE, ""], 
+    ATTR_DHW_POWERFUL: [MP_DHW_TANK, DP_DHW_POWERFUL_MODE, ""], 
+    ATTR_DHW_TEMPERATURE: [MP_DHW_TANK, DP_SENSORS, "/tankTemperature"],
+    ATTR_DHW_TARGET_TEMPERATURE: [MP_DHW_TANK, DP_DHW_TEMPERATURE, "/operationModes/heating/setpoints/domesticHotWaterTemperature"],
+}
+
+ATTR_STATE_ON = "on"
+ATTR_STATE_OFF = "off"
+
+SWITCH_CLIMATE_ONOFF = "On"
+SWITCH_DHW_TANK_ONOFF = "DHW On"
+SWITCH_POWERFUL_ONOFF = "Powerful"
+DAIKIN_SWITCHES = [SWITCH_CLIMATE_ONOFF,SWITCH_DHW_TANK_ONOFF,SWITCH_POWERFUL_ONOFF,]
+DAIKIN_SWITCHES_ICONS ={SWITCH_CLIMATE_ONOFF:'mdi:thermometer-lines',SWITCH_DHW_TANK_ONOFF: 'mdi:bathtub-outline',SWITCH_POWERFUL_ONOFF:'mdi:bike-fast'}
+
+SENSOR_TYPE_TEMPERATURE = "temperature"
+#SENSOR_TYPE_INFO = "info"
+
+SENSOR_TYPES = {
+    ATTR_INSIDE_TEMPERATURE: {
+        CONF_NAME: "Inside Temperature",
+        CONF_TYPE: SENSOR_TYPE_TEMPERATURE,
+        CONF_DEVICE_CLASS: DEVICE_CLASS_TEMPERATURE,
+        CONF_UNIT_OF_MEASUREMENT: TEMP_CELSIUS,
+    },
+    ATTR_LW_TEMPERATURE: {
+        CONF_NAME: "Leaving Water Setpoint",
+        CONF_TYPE: SENSOR_TYPE_TEMPERATURE,
+        CONF_DEVICE_CLASS: DEVICE_CLASS_TEMPERATURE,
+        CONF_UNIT_OF_MEASUREMENT: TEMP_CELSIUS,
+    },
+    ATTR_OUTSIDE_TEMPERATURE: {
+        CONF_NAME: "Outside Temperature",
+        CONF_TYPE: SENSOR_TYPE_TEMPERATURE,
+        CONF_DEVICE_CLASS: DEVICE_CLASS_TEMPERATURE,
+        CONF_UNIT_OF_MEASUREMENT: TEMP_CELSIUS,
+    },
+    ATTR_DHW_TEMPERATURE: {
+        CONF_NAME: "DHW Temperature",
+        CONF_TYPE: SENSOR_TYPE_TEMPERATURE,
+        CONF_ICON: "mdi:bathtub-outline",
+        CONF_DEVICE_CLASS: DEVICE_CLASS_TEMPERATURE,
+        CONF_UNIT_OF_MEASUREMENT: TEMP_CELSIUS,
+    },
+    ATTR_DHW_TARGET_TEMPERATURE: {
+        CONF_NAME: "DHW Setpoint",
+        CONF_TYPE: SENSOR_TYPE_TEMPERATURE,
+        CONF_ICON: "mdi:bathtub-outline",
+        CONF_DEVICE_CLASS: DEVICE_CLASS_TEMPERATURE,
+        CONF_UNIT_OF_MEASUREMENT: TEMP_CELSIUS,
+    },
+}
+
+KEY_MAC = "macAddress"
+KEY_IP = "ipAddress"
