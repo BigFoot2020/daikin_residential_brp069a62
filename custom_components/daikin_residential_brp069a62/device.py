@@ -6,7 +6,7 @@ from homeassistant.util import Throttle
 from homeassistant.helpers.device_registry import CONNECTION_NETWORK_MAC
 from .const import DOMAIN, MP_GATEWAY, MP_CLIMATE, KEY_MAC
 
-MIN_TIME_BETWEEN_UPDATES = datetime.timedelta(seconds=15)
+MIN_TIME_BETWEEN_UPDATES = datetime.timedelta(seconds=60)
 
 import logging
 _LOGGER = logging.getLogger(__name__)
@@ -215,7 +215,7 @@ class DaikinResidentialDevice:
                 "Type of value ("
                 + str(type(value))
                 + ") is not the expected type ("
-                + str(type(descr["value"]))
+                + str(type(descr["stepValue"]))
                 + ")"
             )
 

@@ -39,7 +39,7 @@ This code is based on @Speleolontra's and @Rospogrigio's work that in turn is ba
 # Next steps
 
 - Evaluate combining this integration with @Speleolontra and @Rospogrigio to work with different Daikin Air Conditioning and Heat Pump devices.
-- Move API/Base/device to separate Python package as recommended by HA development.
+- Move API/Base/device to separate Python library as recommended by HA development.
 - Water heater target temperature step in HA is 0.5, device supports 1. 
 - Insert other read only/info parametera/sensors
 - other ideas?

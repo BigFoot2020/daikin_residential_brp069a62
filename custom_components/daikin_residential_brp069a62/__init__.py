@@ -26,7 +26,7 @@ SIGNAL_UPDATE_ENTITY = "daikin_update"
 
 TOKENSET_FILE = "tokenset.json"
 
-MIN_TIME_BETWEEN_UPDATES = datetime.timedelta(seconds=15)
+MIN_TIME_BETWEEN_UPDATES = datetime.timedelta(seconds=60)
 
 COMPONENT_TYPES = ["climate", "sensor", "switch", "water_heater"]
 

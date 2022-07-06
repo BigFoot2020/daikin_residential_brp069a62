@@ -265,7 +265,7 @@ class Appliance(DaikinResidentialDevice):  # pylint: disable=too-many-public-met
         operationMode = self.getValue(ATTR_OPERATION_MODE)
         if operationMode not in [ATTR_HVAC_MODE_AUTO, ATTR_HVAC_MODE_COOL, ATTR_HVAC_MODE_HEAT]:
             return None
-        return await self.setValue(ATTR_TARGET_TEMPERATURE, int(value))
+        return await self.setValue(ATTR_TARGET_TEMPERATURE, float(value))
 
     async def async_set_hvac_mode(self, hvac_mode):
         """Set new HVAC mode."""
@@ -275,7 +275,7 @@ class Appliance(DaikinResidentialDevice):  # pylint: disable=too-many-public-met
         if hvac_mode not in [ATTR_HVAC_MODE_AUTO, ATTR_HVAC_MODE_COOL, ATTR_HVAC_MODE_HEAT]:
             _LOGGER.warning("Daikin Base Set invalid HVAC mode: %s", hvac_mode)
             return None
-        if self.getValue(ATTR_CLIMATE_ON_OFF) != ATTR_STATE_OFF:
+        if self.getValue(ATTR_CLIMATE_ON_OFF) == ATTR_STATE_OFF:
             await self.setValue(ATTR_CLIMATE_ON_OFF, ATTR_STATE_ON)
         return await self.setValue(ATTR_OPERATION_MODE, hvac_mode)
 
@@ -303,7 +303,7 @@ class Appliance(DaikinResidentialDevice):  # pylint: disable=too-many-public-met
             return None
         return await self.setValue(ATTR_DHW_TARGET_TEMPERATURE, int(value))
 
-    async def async_set_dhw_stat(self, dhw_state):
+    async def async_set_dhw_state(self, dhw_state):
         """Set new DHW state."""
         _LOGGER.debug("Daikin Base Set DHW state: %s", dhw_state)
         if dhw_state == STATE_OFF:
