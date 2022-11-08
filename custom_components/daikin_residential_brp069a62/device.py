@@ -210,14 +210,14 @@ class DaikinResidentialDevice:
         if "settable" not in descr or not descr["settable"]:
             raise Exception("Data point " + dataPoint + " is not writable")
 
-        if "stepValue" in descr and type(descr["stepValue"]) != type(value):
-            raise Exception(
-                "Type of value ("
-                + str(type(value))
-                + ") is not the expected type ("
-                + str(type(descr["stepValue"]))
-                + ")"
-            )
+        #if "stepValue" in descr and type(descr["stepValue"]) != type(value):
+        #    raise Exception(
+        #        "Type of value ("
+        #        + str(type(value))
+        #        + ") is not the expected type ("
+        #        + str(type(descr["stepValue"]))
+        #        + ")"
+        #    )
 
         if (
             "values" in descr
