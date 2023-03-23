@@ -1,5 +1,7 @@
 # HA integration for BRP069A62 LAN Adapter
 
+**Important!** Speleolontra's "Daikin Residential for Altherma" integration (https://github.com/speleolontra/daikin_residential_altherma) now supports BRP069A62! Please use (or move to) that integration whenever possible. This repository is (or will be soon) archived as it is not needed anymore. Most of the functionality should work same way, but there may be some differences (like naming of sensors). One of the bigger differences is missing switches, so you may need to change your dashboard/automations (examples can be found in some closed issues there).
+
 Home Assistant custom component for integration of Daikin Altherma Heat Pumps with BRP069A62 LAN Adapter via Daikin Cloud. BRP069A62 firmware has to be updated to work with Daikin Residential Contoller app (connected to Daikin Cloud). Daikin BRP069A61 (with Smart Grid) should also work. 
 
 This work is based on from Speleolontra "daikin_residential_altherma" repository (https://github.com/speleolontra/daikin_residential_altherma) and modified to support Daikin Altherma R Heat Pump with BRP069A62 LAN Adapter in weatherDependent mode. Original HA Integration was cloned from Rospogrigio's work "https://github.com/rospogrigio/daikin_residential".
